@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gen Z Mind</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gen Z Mind - Digital Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script>
-    const categories = {
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-purple-700 via-indigo-700 to-blue-800 text-white">
+  <header class="text-center py-10">
+    <h1 class="text-4xl sm:text-5xl font-extrabold animate-pulse bg-gradient-to-r from-pink-400 via-purple-400 to-blue-500 bg-clip-text text-transparent">
+      ✨ Gen Z Mind ✨
+    </h1>
+    <p class="mt-2 text-lg">Your complete digital universe in one aesthetic place ✨</p>
+    <p class="text-yellow-400 mt-1">⭐ 60+ platforms curated for the digital generation ⭐</p>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 pb-16">
+    <!-- Category Section Template -->
+    <script>
+      const categories = {
   Professional: [
         { name: "LinkedIn", icon: "💼", url: "https://linkedin.com", color: "bg-gradient-to-r from-blue-600 to-blue-700", description: "Professional network" },
         { name: "Xing", icon: "🌐", url: "https://xing.com", color: "bg-gradient-to-r from-teal-600 to-teal-700", description: "Business networking" },
@@ -108,58 +125,50 @@
       ]
 };
 
-    function renderCards(categoryName, items) {
-      return `
-        <div class="my-8">
-          <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-            <span>📂</span> ${categoryName}
-          </h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            ${items.map(item => `
-              <a href="${item.url}" target="_blank" class="block rounded-xl p-4 ${item.color} hover:scale-105 transform transition duration-300">
-                <h3 class="text-lg font-semibold text-white flex items-center gap-2">
-                  <span>${item.icon}</span> ${item.name}
-                </h3>
-                <p class="text-sm text-white">${item.description}</p>
+      const createCategorySection = (title, items) => {
+        return `
+        <section class="mt-14">
+          <div class="flex items-center justify-center">
+            <div class="flex-grow border-t border-white"></div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mx-4">${items[0].icon || '📂'} ${title}</h2>
+            <div class="flex-grow border-t border-white"></div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
+            ${items.map(platform => `
+              <a href="${platform.url}" target="_blank" class="rounded-xl p-4 shadow-lg text-white transition-transform transform hover:scale-105 ${platform.color}">
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl">${platform.icon}</span>
+                  <div>
+                    <h3 class="text-lg font-semibold">${platform.name}</h3>
+                    <p class="text-sm opacity-90">${platform.description}</p>
+                  </div>
+                </div>
               </a>
             `).join('')}
           </div>
-        </div>
-      `;
-    }
+        </section>`
+      }
 
-    window.addEventListener('DOMContentLoaded', async () => {
-      const container = document.getElementById('grid-container');
-      container.innerHTML = Object.entries(categories).map(([category, items]) => renderCards(category, items)).join('');
-    });
-  </script>
-</head>
-<body class="bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 min-h-screen text-white font-inter">
-  <header class="text-center py-10">
-    <h1 class="text-6xl font-extrabold bg-gradient-to-r from-fuchsia-500 via-yellow-400 to-green-300 text-transparent bg-clip-text animate-pulse">
-      ⚡ Gen Z Mind
-    </h1>
-    <p class="text-xl text-gray-200 mt-4">Your complete digital universe in one aesthetic place ✨<br>
-      <span class="text-yellow-300">60+ platforms curated for the digital generation</span>
-    </p>
-  </header>
-
-  <main class="max-w-6xl mx-auto px-6 py-6">
-    <div id="grid-container"></div>
+      document.addEventListener("DOMContentLoaded", () => {
+        const container = document.getElementById("category-sections");
+        Object.entries(categories).forEach(([title, items]) => {
+          container.innerHTML += createCategorySection(title, items);
+        });
+      });
+    </script>
+    <div id="category-sections"></div>
   </main>
 
-  <footer class="mt-20 text-center px-4 py-10 bg-gradient-to-t from-gray-900 via-gray-800 to-transparent border-t border-gray-700">
-    <p class="text-pink-400 font-semibold text-lg">
-      ❤️ Made with love for Gen Z ❤️
-    </p>
-    <p class="mt-2 text-gray-300">Stay connected, stay productive, stay entertained 🚀</p>
-    <p class="mt-1 text-sm text-gray-400">60+ Platforms • 8 Categories • Always Updated</p>
-    <div class="mt-4 flex justify-center flex-wrap gap-6 text-sm text-blue-400">
-      <a href="#" class="hover:underline">About</a>
-      <a href="#" class="hover:underline">Privacy Policy</a>
-      <a href="#" class="hover:underline">Terms</a>
-      <a href="#" class="hover:underline">Contact</a>
+  <footer class="bg-gray-900 text-white text-center py-6 mt-16">
+    <div class="flex flex-wrap justify-center gap-6 text-sm">
+      <a href="about.html" class="hover:underline">About</a>
+      <a href="privacy-policy.html" class="hover:underline">Privacy Policy</a>
+      <a href="terms.html" class="hover:underline">Terms</a>
+      <a href="contact.html" class="hover:underline">Contact</a>
     </div>
+    <p class="mt-4 text-sm">© 2025 Gen Z Mind. All rights reserved.</p>
   </footer>
+
+ 
 </body>
 </html>
