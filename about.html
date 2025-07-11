@@ -6,34 +6,47 @@
   <title>About Us - Gen Z Mind</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #4f46e5, #8b5cf6);
+    }
+    .gradient-text {
+      background: linear-gradient(to right, #f472b6, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-inter">
-  <header class="py-6 shadow-md bg-white">
-    <h1 class="text-3xl font-bold text-center text-indigo-600">About Us</h1>
+<body class="text-white font-inter min-h-screen flex flex-col">
+  <header class="py-8">
+    <h1 class="text-4xl font-extrabold text-center gradient-text">About Us</h1>
   </header>
 
-  <main class="max-w-3xl mx-auto px-4 py-10">
-    <section class="space-y-6">
-      <p class="text-lg">
-        Welcome to Our Website. We are passionate about sharing knowledge and creating meaningful content for our users. Our goal is to deliver high-quality, informative articles that add value to your daily life.
-      </p>
-      <p class="text-lg">
-        We believe in transparency, creativity, and user satisfaction. Thank you for visiting and being a part of our journey.
-      </p>
-      <p class="text-sm text-gray-600 italic">
-        Gen Z Mind is not affiliated with any listed platforms. Logos and names belong to their respective owners.
-      </p>
-    </section>
+  <main class="flex-grow">
+    <div class="max-w-3xl mx-auto px-6 py-10 bg-white bg-opacity-10 backdrop-blur-md rounded-xl shadow-lg">
+      <section class="space-y-6 text-lg leading-relaxed text-white">
+        <p>
+          Welcome to <span class="font-semibold">Gen Z Mind</span>. We are passionate about sharing knowledge and creating meaningful content for our users. Our goal is to deliver high-quality, informative articles that add value to your daily life.
+        </p>
+        <p>
+          We believe in transparency, creativity, and user satisfaction. Thank you for visiting and being a part of our journey.
+        </p>
+        <p class="text-sm italic text-gray-200">
+          Gen Z Mind is not affiliated with any listed platforms. Logos and names belong to their respective owners.
+        </p>
+      </section>
+    </div>
   </main>
 
-  <footer class="bg-gray-800 text-white text-center py-6 mt-10">
-    <div class="flex flex-wrap justify-center space-x-4">
-      <a href="#" class="hover:underline">About</a>
-      <a href="#" class="hover:underline">Privacy Policy</a>
-      <a href="#" class="hover:underline">Terms</a>
-      <a href="#" class="hover:underline">Contact</a>
+  <footer class="bg-black bg-opacity-40 text-white text-center py-6 mt-10">
+    <div class="flex flex-wrap justify-center space-x-4 text-sm">
+      <a href="index.html" class="hover:underline">Home</a>
+      <a href="about.html" class="hover:underline">About</a>
+      <a href="privacy-policy.html" class="hover:underline">Privacy Policy</a>
+      <a href="terms.html" class="hover:underline">Terms</a>
+      <a href="contact.html" class="hover:underline">Contact</a>
     </div>
-    <p class="mt-4 text-sm">© 2025 Gen Z Mind. All rights reserved.</p>
+    <p class="mt-4 text-xs text-gray-300">© 2025 Gen Z Mind. All rights reserved.</p>
   </footer>
 </body>
 </html>
