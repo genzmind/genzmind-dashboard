@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gen Z Mind</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    const categories = {
+  Professional: [
+        { name: "LinkedIn", icon: "💼", url: "https://linkedin.com", color: "bg-gradient-to-r from-blue-600 to-blue-700", description: "Professional network" },
+        { name: "Xing", icon: "🌐", url: "https://xing.com", color: "bg-gradient-to-r from-teal-600 to-teal-700", description: "Business networking" },
+        { name: "Lunchclub", icon: "☕", url: "https://lunchclub.com", color: "bg-gradient-to-r from-orange-500 to-red-500", description: "Professional meetups" },
+        { name: "AngelList", icon: "🎯", url: "https://angel.co", color: "bg-gradient-to-r from-gray-800 to-black", description: "Startup jobs & funding" },
+        { name: "Glassdoor", icon: "🛡️", url: "https://glassdoor.com", color: "bg-gradient-to-r from-green-500 to-teal-600", description: "Company reviews & salaries" },
+        { name: "Indeed", icon: "🔍", url: "https://indeed.com", color: "bg-gradient-to-r from-blue-500 to-blue-600", description: "Job search engine" },
+        { name: "Monster", icon: "👁️", url: "https://monster.com", color: "bg-gradient-to-r from-purple-600 to-purple-700", description: "Career advice & jobs" },
+        { name: "Toptal", icon: "⭐", url: "https://toptal.com", color: "bg-gradient-to-r from-cyan-500 to-blue-500", description: "Top freelance talent" },
+        { name: "Freelancer", icon: "🪶", url: "https://freelancer.com", color: "bg-gradient-to-r from-blue-400 to-indigo-500", description: "Freelance jobs & gigs" },
+        { name: "Fiverr", icon: "💳", url: "https://fiverr.com", color: "bg-gradient-to-r from-green-500 to-green-700", description: "Freelance services" },
+        { name: "Upwork", icon: "🌍", url: "https://upwork.com", color: "bg-gradient-to-r from-teal-500 to-emerald-600", description: "Global freelance work" }
+      ],
+      SocialMedia: [
+        { name: "Facebook", icon: "📘", url: "https://facebook.com", color: "bg-gradient-to-r from-blue-600 to-blue-700", description: "Connect with friends" },
+        { name: "Instagram", icon: "📸", url: "https://instagram.com", color: "bg-gradient-to-r from-purple-500 to-pink-500", description: "Share your moments" },
+        { name: "Twitter/X", icon: "🐦", url: "https://x.com", color: "bg-gradient-to-r from-gray-800 to-black", description: "What's happening" },
+        { name: "Snapchat", icon: "👻", url: "https://snapchat.com", color: "bg-gradient-to-r from-yellow-400 to-yellow-500", description: "Snap it up" },
+        { name: "Threads", icon: "#️⃣", url: "https://threads.net", color: "bg-gradient-to-r from-gray-900 to-purple-900", description: "Text conversations" },
+        { name: "MeWe", icon: "👥", url: "https://mewe.com", color: "bg-gradient-to-r from-blue-500 to-teal-500", description: "Privacy focused" },
+        { name: "Vero", icon: "👁️", url: "https://vero.co", color: "bg-gradient-to-r from-black to-gray-800", description: "True social" },
+        { name: "WT.Social", icon: "🌐", url: "https://trustcafe.io", color: "bg-gradient-to-r from-green-600 to-blue-600", description: "Wiki-style social" }
+      ],
+      Gaming: [
+        { name: "Twitch", icon: "🎮", url: "https://twitch.tv", color: "bg-gradient-to-r from-purple-600 to-purple-700", description: "Live gaming" },
+        { name: "Discord", icon: "💬", url: "https://discord.com", color: "bg-gradient-to-r from-indigo-500 to-purple-600", description: "Chat with gamers" },
+        { name: "Steam Community", icon: "🔥", url: "https://steamcommunity.com", color: "bg-gradient-to-r from-blue-900 to-gray-800", description: "Gaming community" },
+        { name: "Roblox", icon: "🧱", url: "https://roblox.com", color: "bg-gradient-to-r from-red-500 to-orange-500", description: "Create & play" },
+        { name: "Game Jolt", icon: "⚡", url: "https://gamejolt.com", color: "bg-gradient-to-r from-green-500 to-teal-500", description: "Indie games" },
+        { name: "Epic Games", icon: "🕹️", url: "https://epicgames.com", color: "bg-gradient-to-r from-black to-gray-800", description: "Fortnite & PC games" },
+        { name: "Xbox", icon: "🎯", url: "https://xbox.com", color: "bg-gradient-to-r from-green-600 to-green-700", description: "Console gaming" },
+        { name: "PlayStation", icon: "🎮", url: "https://playstation.com", color: "bg-gradient-to-r from-blue-700 to-indigo-800", description: "Sony gaming platform" },
+        { name: "Itch.io", icon: "🎲", url: "https://itch.io", color: "bg-gradient-to-r from-pink-500 to-red-600", description: "Indie game store" },
+        { name: "Kongregate", icon: "👾", url: "https://kongregate.com", color: "bg-gradient-to-r from-red-700 to-black", description: "Browser games hub" },
+        { name: "Miniclip", icon: "🎯", url: "https://miniclip.com", color: "bg-gradient-to-r from-yellow-500 to-orange-500", description: "Casual mobile games" }
+      ],
+      ImageVideo: [
+        { name: "YouTube", icon: "📺", url: "https://youtube.com", color: "bg-gradient-to-r from-red-500 to-red-600", description: "Watch & create" },
+        { name: "Vimeo", icon: "🎬", url: "https://vimeo.com", color: "bg-gradient-to-r from-blue-500 to-cyan-500", description: "Creative videos" },
+        { name: "Dailymotion", icon: "🎞️", url: "https://dailymotion.com", color: "bg-gradient-to-r from-blue-600 to-blue-800", description: "Video platform" },
+        { name: "Pinterest", icon: "📌", url: "https://pinterest.com", color: "bg-gradient-to-r from-red-500 to-pink-500", description: "Get inspired" },
+        { name: "Flickr", icon: "📷", url: "https://flickr.com", color: "bg-gradient-to-r from-pink-500 to-purple-500", description: "Photo sharing" },
+        { name: "Imgur", icon: "🖼️", url: "https://imgur.com", color: "bg-gradient-to-r from-green-600 to-green-700", description: "Image hosting" },
+        { name: "500px", icon: "🌄", url: "https://500px.com", color: "bg-gradient-to-r from-gray-700 to-black", description: "Photography network" },
+        { name: "Behance", icon: "🖌️", url: "https://behance.net", color: "bg-gradient-to-r from-blue-600 to-indigo-700", description: "Creative portfolios" },
+        { name: "Dribbble", icon: "🏀", url: "https://dribbble.com", color: "bg-gradient-to-r from-pink-500 to-rose-500", description: "Design inspiration" },
+        { name: "Snapseed", icon: "🌱", url: "https://snapseed.online", color: "bg-gradient-to-r from-green-500 to-teal-500", description: "Photo editing" },
+        { name: "Canva", icon: "🎨", url: "https://canva.com", color: "bg-gradient-to-r from-cyan-400 to-blue-500", description: "Design anything" },
+        { name: "Snapchat", icon: "👻", url: "https://snapchat.com", color: "bg-gradient-to-r from-yellow-400 to-yellow-500", description: "Snaps & stories" }
+  ],
+  Blogging: [
+        { name: "Tumblr", icon: "🌀", url: "https://tumblr.com", color: "bg-gradient-to-r from-blue-800 to-purple-800", description: "Microblogging" },
+        { name: "Medium", icon: "✍️", url: "https://medium.com", color: "bg-gradient-to-r from-gray-800 to-black", description: "Quality writing" },
+        { name: "Substack", icon: "📬", url: "https://substack.com", color: "bg-gradient-to-r from-orange-500 to-red-500", description: "Newsletter platform" },
+        { name: "Blogger", icon: "📝", url: "https://blogger.com", color: "bg-gradient-to-r from-orange-400 to-orange-600", description: "Google blogging" },
+        { name: "WordPress.com", icon: "🌐", url: "https://wordpress.com", color: "bg-gradient-to-r from-blue-600 to-blue-800", description: "Website builder" },
+        { name: "Ghost", icon: "👻", url: "https://ghost.org", color: "bg-gradient-to-r from-gray-700 to-gray-900", description: "Publishing platform" },
+        { name: "Reddit", icon: "👽", url: "https://reddit.com", color: "bg-gradient-to-r from-orange-500 to-red-600", description: "Front page of internet" },
+        { name: "Hashnode", icon: "💻", url: "https://hashnode.com", color: "bg-gradient-to-r from-blue-500 to-indigo-700", description: "Dev blogs & community" },
+        { name: "Dev.to", icon: "⚙️", url: "https://dev.to", color: "bg-gradient-to-r from-gray-900 to-black", description: "Developer writing hub" },
+        { name: "Write.as", icon: "✒️", url: "https://write.as", color: "bg-gradient-to-r from-green-600 to-emerald-700", description: "Minimalist blogging" },
+        { name: "Jekyll", icon: "🧱", url: "https://jekyllrb.com", color: "bg-gradient-to-r from-gray-800 to-gray-900", description: "Static site generator" },
+        { name: "Hugo", icon: "🚀", url: "https://gohugo.io", color: "bg-gradient-to-r from-blue-600 to-blue-800", description: "Fast static site generator" },
+        { name: "Svbtle", icon: "🧠", url: "https://svbtle.com", color: "bg-gradient-to-r from-gray-600 to-gray-800", description: "Simple blogging" },
+        { name: "Contently", icon: "📚", url: "https://contently.com", color: "bg-gradient-to-r from-blue-500 to-purple-600", description: "Professional publishing" },
+        { name: "Typepad", icon: "📖", url: "https://typepad.com", color: "bg-gradient-to-r from-green-500 to-teal-600", description: "Customizable blogging" }
+      ],
+
+      Messaging: [
+        { name: "WhatsApp", icon: "📱", url: "https://whatsapp.com", color: "bg-gradient-to-r from-green-500 to-green-600", description: "Message anyone" },
+        { name: "Telegram", icon: "✈️", url: "https://telegram.org", color: "bg-gradient-to-r from-blue-500 to-blue-600", description: "Fast & secure" },
+        { name: "Signal", icon: "🔒", url: "https://signal.org", color: "bg-gradient-to-r from-blue-600 to-blue-800", description: "Private messaging" },
+        { name: "Messenger", icon: "💬", url: "https://messenger.com", color: "bg-gradient-to-r from-blue-500 to-purple-500", description: "Facebook chat" },
+        { name: "Line", icon: "📲", url: "https://line.me", color: "bg-gradient-to-r from-green-500 to-teal-500", description: "Chat & call" },
+        { name: "KakaoTalk", icon: "🗨️", url: "https://kakaocorp.com", color: "bg-gradient-to-r from-yellow-400 to-yellow-600", description: "Korean messenger" }
+      ],
+
+      Productivity: [
+        { name: "Notion", icon: "🧠", url: "https://notion.so", color: "bg-gradient-to-r from-gray-800 to-black", description: "All-in-one workspace" },
+        { name: "Trello", icon: "📋", url: "https://trello.com", color: "bg-gradient-to-r from-blue-400 to-cyan-500", description: "Kanban boards" },
+        { name: "Asana", icon: "📌", url: "https://asana.com", color: "bg-gradient-to-r from-pink-500 to-purple-500", description: "Team collaboration" },
+        { name: "Slack", icon: "💼", url: "https://slack.com", color: "bg-gradient-to-r from-purple-700 to-indigo-700", description: "Messaging for teams" },
+        { name: "Google Keep", icon: "🗒️", url: "https://keep.google.com", color: "bg-gradient-to-r from-yellow-400 to-yellow-600", description: "Simple note-taking" },
+        { name: "Evernote", icon: "🐘", url: "https://evernote.com", color: "bg-gradient-to-r from-green-600 to-teal-700", description: "Notes & ideas" },
+        { name: "Todoist", icon: "📝", url: "https://todoist.com", color: "bg-gradient-to-r from-red-500 to-red-700", description: "Task management" },
+        { name: "Microsoft To Do", icon: "✅", url: "https://todo.microsoft.com", color: "bg-gradient-to-r from-blue-600 to-blue-800", description: "Daily planner" }
+      ],
+
+      Shopping: [
+        { name: "Amazon", icon: "🛒", url: "https://amazon.com", color: "bg-gradient-to-r from-yellow-500 to-orange-600", description: "Online everything store" },
+        { name: "eBay", icon: "💸", url: "https://ebay.com", color: "bg-gradient-to-r from-yellow-400 to-blue-500", description: "Buy & sell online" },
+        { name: "Etsy", icon: "🎁", url: "https://etsy.com", color: "bg-gradient-to-r from-pink-500 to-orange-400", description: "Handmade & vintage" },
+        { name: "Flipkart", icon: "📦", url: "https://flipkart.com", color: "bg-gradient-to-r from-blue-500 to-yellow-500", description: "Indian e-commerce giant" },
+        { name: "Myntra", icon: "👗", url: "https://myntra.com", color: "bg-gradient-to-r from-pink-600 to-purple-600", description: "Fashion for all" },
+        { name: "AliExpress", icon: "📦", url: "https://aliexpress.com", color: "bg-gradient-to-r from-red-500 to-orange-500", description: "Global shopping" },
+        { name: "Nykaa", icon: "💄", url: "https://nykaa.com", color: "bg-gradient-to-r from-pink-500 to-rose-500", description: "Beauty & wellness" },
+        { name: "Ajio", icon: "👜", url: "https://ajio.com", color: "bg-gradient-to-r from-purple-500 to-indigo-600", description: "Trendy clothing" }
+      ]
+};
+
+    function renderCards(categoryName, items) {
+      return `
+        <div class="my-8">
+          <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+            <span>📂</span> ${categoryName}
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            ${items.map(item => `
+              <a href="${item.url}" target="_blank" class="block rounded-xl p-4 ${item.color} hover:scale-105 transform transition duration-300">
+                <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+                  <span>${item.icon}</span> ${item.name}
+                </h3>
+                <p class="text-sm text-white">${item.description}</p>
+              </a>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    window.addEventListener('DOMContentLoaded', async () => {
+      const container = document.getElementById('grid-container');
+      container.innerHTML = Object.entries(categories).map(([category, items]) => renderCards(category, items)).join('');
+    });
+  </script>
+</head>
+<body class="bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 min-h-screen text-white font-inter">
+  <header class="text-center py-10">
+    <h1 class="text-6xl font-extrabold bg-gradient-to-r from-fuchsia-500 via-yellow-400 to-green-300 text-transparent bg-clip-text animate-pulse">
+      ⚡ Gen Z Mind
+    </h1>
+    <p class="text-xl text-gray-200 mt-4">Your complete digital universe in one aesthetic place ✨<br>
+      <span class="text-yellow-300">60+ platforms curated for the digital generation</span>
+    </p>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-6">
+    <div id="grid-container"></div>
+  </main>
+
+  <footer class="mt-20 text-center px-4 py-10 bg-gradient-to-t from-gray-900 via-gray-800 to-transparent border-t border-gray-700">
+    <p class="text-pink-400 font-semibold text-lg">
+      ❤️ Made with love for Gen Z ❤️
+    </p>
+    <p class="mt-2 text-gray-300">Stay connected, stay productive, stay entertained 🚀</p>
+    <p class="mt-1 text-sm text-gray-400">60+ Platforms • 8 Categories • Always Updated</p>
+    <div class="mt-4 flex justify-center flex-wrap gap-6 text-sm text-blue-400">
+      <a href="#" class="hover:underline">About</a>
+      <a href="#" class="hover:underline">Privacy Policy</a>
+      <a href="#" class="hover:underline">Terms</a>
+      <a href="#" class="hover:underline">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>
